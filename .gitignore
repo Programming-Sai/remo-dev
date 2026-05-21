@@ -222,3 +222,4 @@ __marimo__/
 log.txt
 /scripts/*
 generate_test_files.py
+demo/*
