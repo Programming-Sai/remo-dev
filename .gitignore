@@ -220,4 +220,6 @@ __marimo__/
 /test_dir/
 .monitor_state*
 log.txt
+/scripts/*
+generate_test_files.py
 demo/*
