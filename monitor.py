@@ -22,11 +22,15 @@ class DirectoryMonitor:
         with open(self.state_file, 'w') as f:
             json.dump(list(files), f)
     
-    def _log_new_file(self, filepath, rel_path):
+    def _log_new_file(self, filepath, rel_path, max_width=60):
         size_kb = filepath.stat().st_size / 1024
         timestamp = time.strftime('%Y-%m-%d %H:%M:%S')
+        if max_width > 0:
+            padded_path = rel_path.ljust(max_width)
+        else:
+            padded_path = rel_path
         with open(self.log_file, 'a') as log:
-            log.write(f"[{timestamp}] {rel_path.ljust(50)} | {size_kb:.2f} KB\n")
+            log.write(f"[{timestamp}] {padded_path} | {size_kb:.2f} KB\n")
         print(f"  NEW: {rel_path} ({size_kb:.2f} KB)")
         self.new_count += 1
     
