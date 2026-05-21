@@ -216,3 +216,7 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+.fttignore
+/test_dir/
+.monitor_state*
+log.txt
